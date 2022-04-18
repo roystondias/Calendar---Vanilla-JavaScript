@@ -1,0 +1,17 @@
+/* this file is used to make the website responsive */
+header{
+    font-size: 3rem;
+}
+#calendar{
+    height: 670px;
+    width: 380px;
+    /* border: 2px solid red; */
+    margin: auto;
+}
+#up-button{
+    margin-left: 20px;
+}
+.selection-button {
+    width: 153px;
+}
+
