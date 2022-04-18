@@ -6,10 +6,6 @@ function updateClock(clock) {
     console.log(clock);
 }
 
-setInterval(function () {
-    updateClock(clockElement);
-}, 1000);
-
 //adding the date section
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
@@ -27,6 +23,7 @@ const downButton = document.getElementById('down-button');
 upButton.addEventListener('click', moveup);
 downButton.addEventListener('click', movedown);
 
+//these if blocks are used to handle the weeks and months when they reach the end
 function moveup() {
     if (month == 0) {
         month = 11;
@@ -49,6 +46,7 @@ function movedown() {
     displaydate(month);
     showCalendar(month);
 }
+
 //Month, year and button section
 displaydate(month);
 function displaydate(month) {
@@ -57,6 +55,7 @@ function displaydate(month) {
     dateSection_2.innerHTML = `${displaymonth}, ${year}`;
     dateSection_2.style.display = 'inline-block';
 }
+
 //this is called from on change (used to jump to any given month and year)
 let selectYear = document.getElementById("year");
 let selectMonth = document.getElementById("month");
@@ -76,7 +75,7 @@ function showCalendar(month) {
     const tableBody = document.getElementById('calendar-body');
     tableBody.innerHTML = "";
 
-    //this to create the critical variables required to create dates
+    //variables required to create dates
     let first = new Date(year, month, 1).getDate();
     let last = new Date(year, (month + 1), 0).getDate();
     let day = (new Date(year, month, 1).getDay());
